@@ -37,10 +37,6 @@ public class LookUp extends JFrame implements ActionListener {
         labels = addJLabel();
         radio = addRadioButtons();
 
-        // panels[0].
-        // panels[0].getHeight();
-        // panels[0].setPreferredSize(new Dimension(1000, 1000));
-
         panels[0].setPreferredSize(new Dimension(500, 550));
         panels[0].setBackground(new Color(148, 148, 156));
         panels[0].setLayout(new GridBagLayout());
@@ -114,7 +110,7 @@ public class LookUp extends JFrame implements ActionListener {
 
     public JLabel[] addJLabel() {
         String[] labelStr = { "Look Up IP Addresses with a host name: ", "Host Name: ", " - - - -",
-                "IP Address: ", " - - - -", "", "Enter Host Name: E.g. Google.com"};
+                "IP Address: ", " - - - -", "", "Enter Host Name: E.g. Google.com" };
 
         labels = new JLabel[labelStr.length];
 
@@ -127,16 +123,13 @@ public class LookUp extends JFrame implements ActionListener {
     }
 
     public JRadioButton[] addRadioButtons() {
-        String[] radios = { "Local Host", "External Host" };
+        String[] radios = { "Local Host", "Remote Host" };
         radio = new JRadioButton[radios.length];
         buttonGroup = new ButtonGroup();
 
         for (int i = 0; i < radio.length; i++) {
             radio[i] = new JRadioButton(radios[i]);
-
             radio[i].setPreferredSize(new Dimension(150, 50));
-
-            // radio[i].setSelected(true);
             radio[i].setFont(new Font("TimesRoman", Font.BOLD, 15));
             radio[i].setOpaque(true);
             radio[i].setBackground(new Color(148, 148, 156));
@@ -165,17 +158,14 @@ public class LookUp extends JFrame implements ActionListener {
                 textField.setVisible(false);
                 textField.setText(null);
                 lookUpBtn.setVisible(false);
-            } else if (radio[1].isSelected()) {
+            } else {
                 textField.setVisible(true);
-                 labels[2].setText(String.valueOf(address.getHostName()));
-                  labels[4].setText(String.valueOf(address.getHostAddress()));
+                labels[2].setText(String.valueOf(address.getHostName()));
+                labels[4].setText(String.valueOf(address.getHostAddress()));
                 lookUpBtn.setVisible(true);
                 labels[3].setVisible(true);
                 labels[4].setVisible(true);
-                 labels[6].setVisible(true);
-
-            } else {
-                System.out.println("other");
+                labels[6].setVisible(true);
             }
 
             if (e.getSource() == lookUpBtn) {
@@ -188,7 +178,6 @@ public class LookUp extends JFrame implements ActionListener {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Invalid Host");
             System.out.println(ex.getMessage());
-            // labels[6].setText(String.valueOf(ex.getMessage()));
 
         }
     }
