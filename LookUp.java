@@ -23,11 +23,6 @@ public class LookUp extends JFrame implements ActionListener {
         frame.add(panels[0]);
         frame.add(panels[1]);
 
-        // frame.add(panels[0], BorderLayout.WEST);
-        // frame.add(panels[1], BorderLayout.NORTH);
-        // frame.add(panels[2], BorderLayout.CENTER);
-        // frame.add(panels[3], BorderLayout.SOUTH);
-
         lookUpBtn.addActionListener(this);
         frame.setVisible(true);
     }
@@ -37,8 +32,6 @@ public class LookUp extends JFrame implements ActionListener {
 
         for (int i = 0; i < panels.length; i++) {
             panels[i] = new JPanel();
-
-            // frame.add(panels[i]);
         }
 
         labels = addJLabel();
@@ -115,14 +108,6 @@ public class LookUp extends JFrame implements ActionListener {
         gbc.gridx = 1;
         gbc.gridy = 1;
         panels[4].add(labels[4], gbc);
-
-        // gbc.gridx = 0;
-        // gbc.gridy = 2;
-        // panels[4].add(labels[5], gbc);
-
-        // gbc.gridx = 1;
-        // gbc.gridy = 2;
-        // panels[4].add(labels[6], gbc);
 
         return panels;
     }
